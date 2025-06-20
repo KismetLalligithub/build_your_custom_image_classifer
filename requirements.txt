@@ -1,0 +1,4 @@
+fastai>=2.7
+duckduckgo_search>=6.2
+fastdownload
+fastcore
