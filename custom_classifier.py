@@ -27,7 +27,7 @@ def custom_image_classifier(classified_item):
             get_items=get_image_files,
             splitter=RandomSplitter(valid_pct=0.2, seed=42),
             get_y=parent_label,
-            items_tfms=[Resize(192, method='crop')]).dataloaders(path, bs=32)
+            item_tfms=[Resize(192, method='crop')]).dataloaders(path, bs=32)
     
     # On resnet18
     learn = vision_learner(dls, resnet18, metrics=error_rate)
