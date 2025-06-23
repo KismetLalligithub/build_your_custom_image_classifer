@@ -33,12 +33,14 @@ def custom_image_classifier(classified_item):
     learn = vision_learner(dls, resnet18, metrics=error_rate)
     learn.fine_tune(3)
 
-    # Testing
+    # Exporting the model 
+    learn.export(f"{classified_item}_classifier.pk1")
 
+    # Testing
     is_classified_item,_,probs = learn.predict(PILImage.create(f'{classified_item}.jpg'))
 
     print(f"This is a: {is_classified_item}.")
-    print(f"Probability it's a bird: {probs[0]:.4f}")
+    print(f"Probability it's a {classified_item}: {probs[dls.vocab.o2i[classified_item]]:.4f}")
 if __name__ == "__main__": 
     classified_item = input("Enter whatever you'd like to classify, don't end or start with a space ")
     custom_image_classifier(classified_item)

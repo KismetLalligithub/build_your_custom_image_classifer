@@ -1,4 +1,5 @@
 venv/
+dog_classifier.pk1
 dog_or_not/
 cat_or_not/
-dog_classifier.pk1
+
